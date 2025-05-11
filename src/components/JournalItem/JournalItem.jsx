@@ -1,19 +1,18 @@
 import './JournalItem.css';
 
-function JournalItem() {
-    const title = 'Podgodofka k obnovleniya kursov'; 
-    const date = new Date();
-    const text = '';
+function JournalItem({title, text, date}) {
 
-  return (
-    <div className='journal-item'>
-        <h2 className="journal-item__header">{title}</h2>
-        <h2 className="journal-item__body">
-            <div journal-item__date>{date.toDateString()}</div>
-            <div journal-item__text>{text}</div>
-        </h2>
-    </div>
-  );
+	const formatedDate = new Intl.DateTimeFormat('uz-UZ').format(date);
+
+	return (
+		<>
+			<h2 className="journal-item__header">{title}</h2>
+			<h2 className="journal-item__body">
+				<div className='journal-item__date'>{formatedDate}</div>
+				<div className='journal-item__text'>{text}</div>
+			</h2>
+		</>
+	);
 }
 
 export default JournalItem;
